@@ -38,6 +38,8 @@ def list_to_sentence(top_genes_dict):
         # Convert the list of genes to a sentence
         if len(genes) > 1:
             gene_sentence = "Top genes are {}, and {}.".format(", ".join(genes[:-1]), genes[-1])
+        elif len(genes) ==0:
+            gene_sentence = ""
         else:
             gene_sentence = "Top gene is {}.".format(genes[0])
         formatted_dict[index] = gene_sentence
