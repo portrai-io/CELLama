@@ -2,7 +2,7 @@
 
 <img src="https://github.com/portrai-io/CELLama/assets/103564171/f0211b49-2c8d-45a7-a223-b323c21c3ac1" style="width: 250px;">
 
-## Cell Embedding Leveraging Language Model without Additional Training
+## Cell Embedding Leveraging Language Model without Additional Training by <span style="color:violet;">Portrai</span>
 
 ### Goal
 The goal is to create a dataset and modality-agnostic cell embedding function using a universal cell embedder. This project leverages a language model to enhance embedding efficiency and evaluates the performance of this approach.
