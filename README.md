@@ -32,7 +32,7 @@ To get started with CELLama, download the project files and use pip install.
 - Python (>3.8)
 Run the following command in your terminal
 ```bash
-pip install git+https://github.com/mexchy1000/CellDART.git
+pip install git+https://github.com/portrai-io/CELLama.git
 ```
 
 
