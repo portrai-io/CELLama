@@ -27,7 +27,14 @@ It utilizes pre-trained sentence transformers to convert cell gene expressions i
 - **Spatial Context**: As one of metadata, spatial transcriptomics can provide niche information, such as nearest cells for each cell. By generating sentences with this niche cell information, cell subclustering and characterization considering spatial context are possible. 
 
 ## Getting Started
-To get started with CELLama, download the project files and follow the setup instructions in the documentation. This will guide you through the process of using the CELLama embedding system in your research or application.
+To get started with CELLama, download the project files and use pip install. 
+#### Prerequisites
+- Python (>3.8)
+Run the following command in your terminal
+```bash
+pip install git+https://github.com/mexchy1000/CellDART.git
+```
+
 
 ## License
 This project is licensed for non-commercial use only. For more information, see the `LICENSE` file included with the project.
