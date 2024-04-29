@@ -30,7 +30,7 @@ It utilizes pre-trained sentence transformers to convert cell gene expressions i
 To get started with CELLama, download the project files and use pip install. 
 #### Prerequisites
 - Python (>3.8)
-Run the following command in your terminal
+- Run the following command in your terminal
 ```bash
 pip install git+https://github.com/portrai-io/CELLama.git
 ```
