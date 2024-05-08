@@ -4,7 +4,7 @@
 
 ## Cell Embedding Leveraging Language Model Ability
 
-Developed by Portrai,Inc.
+Developed by Portrai, Inc.
 ### Goal
 The goal is to create a dataset and modality-agnostic cell embedding function using a universal cell embedder. This project leverages a language model to enhance embedding efficiency and evaluates the performance of this approach.
 
