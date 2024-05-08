@@ -41,5 +41,5 @@ This project is licensed for non-commercial use only. For more information, see 
 
 ## Contact
 - Project Link: [GitHub - CELLama](https://github.com/CELLama)
-- webpage: portrai.io
+- webpage: www.portrai.io
 - Hongyoon Choi; chy@portrai.io
