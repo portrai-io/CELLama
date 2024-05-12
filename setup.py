@@ -5,7 +5,7 @@ def read_requirements():
         content = req.read()
         requirements = content.split('\n')
     return requirements
-
+py_modules=[]
 setup(
     name='your_package_name',
     version='0.1.0',
