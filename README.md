@@ -32,8 +32,28 @@ To get started with CELLama, download the project files and use pip install.
 #### Prerequisites
 - Python (>3.8)
 - Run the following command in your terminal
+  
 ```bash
 pip install git+https://github.com/portrai-io/CELLama.git
+```
+
+- If an error occurs as mentioned by KarlKaise, follow these steps:
+
+```bash
+### Successful on Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-105-generic x86_64)
+
+conda create --name cellama2 python=3.9
+conda activate cellama2
+python --version
+# Python 3.9.19
+git clone https://github.com/portrai-io/CELLama.git 
+cd CELLama
+pip install -r requirements.txt
+pip install ipykernel jupyter jupyterlab 
+python -m ipykernel install --user --name CELLama --display-name CELLama
+
+cd
+jupyter lab
 ```
 
 
