@@ -7,7 +7,7 @@ def read_requirements():
     return requirements
 
 setup(
-    name='your_package_name',
+    name='CELLama',
     version='0.1.0',
     description = "CELLama",
     long_description=open('README.md').read(),
@@ -15,6 +15,9 @@ setup(
     url = "https://github.com/portrai-io/CELLama.git",
     author = "Portraier",
     install_requires=read_requirements(),
+    #packages=find_packages(),
+    packages=find_packages(include=['cellama_st', 'cellama_training']),
+    py_modules=['cellama','_nn_model','_examples_to_json'],
     python_requires='>=3.7',
     classifiers=[
         'Development Status :: 3 - Alpha',
