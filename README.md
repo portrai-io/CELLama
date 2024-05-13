@@ -9,19 +9,20 @@
 Developed by Portrai, Inc.
 
 ### 🥅 Goal
-The goal is to create a dataset and modality-agnostic cell embedding function using a universal cell embedder. This project leverages a language model to enhance embedding efficiency and evaluates the performance of this approach.
+- The goal is to create a dataset and modality-agnostic cell embedding function using a universal cell embedder. This project leverages a language model to enhance embedding efficiency and evaluates the performance of this approach.
 
 ### :microscope: Background
-Cells are classified based on their gene expression, and when testing perturbations, an integration method is necessary. With numerous experiments across different modalities, different samples, a method to integrate this data is crucial. 
+- Cells are classified based on their gene expression, and when testing perturbations, an integration method is necessary. With numerous experiments across different modalities, different samples, a method to integrate this data is crucial. 
 We have used embeddings to ensure cells occupy the same space, traditionally done through direct dataset pairing (like scVI, Harmony, Seurat).
 
-Integration attempts to map cells by proximity, thus, the core challenge is how effectively cells can be embedded in the same space. This has led to the sudden rise of developing a 'universal' cell-specific gene expression embedding as a 'Foundation model'.
-Models such as scGPT, Geneformer, etc. fall under this category. However, the crux is focusing on how gene expression values of each cell are integrated across batches and modalities, which vary significantly, making universal application difficult: more flexibility is needed!
+- Integration attempts to map cells by proximity, thus, the core challenge is how effectively cells can be embedded in the same space. This has led to the sudden rise of developing a 'universal' cell-specific gene expression embedding as a 'Foundation model'.
 
-The hypothesis here is to use gene ranks as well as cell observations to integrate and various features under gene expression data of cells by creating a 'language description' of each cell related to its characteristics. By utilizing the 'sentence-transformer' without additional training (or additional training after generation sentences), we can create a cell-to-sentence function that describes cells and embed them using the sentence transformer. This can be varied from observational descriptions as well as 'gene ranks'.
+- Models such as scGPT, Geneformer, etc. fall under this category. However, the crux is focusing on how gene expression values of each cell are integrated across batches and modalities, which vary significantly, making universal application difficult: more flexibility is needed!
+
+- The hypothesis here is to use gene ranks as well as cell observations to integrate and various features under gene expression data of cells by creating a 'language description' of each cell related to its characteristics. By utilizing the 'sentence-transformer' without additional training (or additional training after generation sentences), we can create a cell-to-sentence function that describes cells and embed them using the sentence transformer. This can be varied from observational descriptions as well as 'gene ranks'.
 
 ### :microscope: Implementation
-It utilizes pre-trained sentence transformers to convert cell gene expressions into descriptive sentences, which are then embedded to create a universal embedding space for cells. Also, CELLama covers finetuning (even more, large-sized data-based retraining) to achieve better performance on specific dataset.
+- It utilizes pre-trained sentence transformers to convert cell gene expressions into descriptive sentences, which are then embedded to create a universal embedding space for cells. Also, CELLama covers finetuning (even more, large-sized data-based retraining) to achieve better performance on specific dataset.
 
 ### :mag: Key Features
 - **Modality Agnostic**: Works across different types of cell gene expression data.
