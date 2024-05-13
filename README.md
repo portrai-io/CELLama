@@ -2,9 +2,12 @@
 
 <img src="https://github.com/portrai-io/CELLama/assets/103564171/f0211b49-2c8d-45a7-a223-b323c21c3ac1" style="width: 250px;">
 
+---
+
 ## Cell Embedding Leveraging Language Model Ability
 
 Developed by Portrai, Inc.
+
 ### Goal
 The goal is to create a dataset and modality-agnostic cell embedding function using a universal cell embedder. This project leverages a language model to enhance embedding efficiency and evaluates the performance of this approach.
 
@@ -26,6 +29,8 @@ It utilizes pre-trained sentence transformers to convert cell gene expressions i
 - **No Additional Training**: Leverages existing language models, reducing the need for specialized training and simplifying implementation.
 - **Fine Tuning**: By generating sentences from cells (gene expression and their metadata), CELLama embedding model can be fine tuned.
 - **Spatial Context**: As one of metadata, spatial transcriptomics can provide niche information, such as nearest cells for each cell. By generating sentences with this niche cell information, cell subclustering and characterization considering spatial context are possible. 
+
+---
 
 ## Getting Started
 To get started with CELLama, download the project files and use pip install. 
@@ -57,9 +62,12 @@ cd
 jupyter lab
 ```
 
+---
 
 ## License
 This project is licensed for non-commercial use only. For more information, see the `LICENSE` file included with the project.
+
+---
 
 ## Contact
 - Project Link: [GitHub - CELLama](https://github.com/CELLama)
