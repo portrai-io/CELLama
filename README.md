@@ -56,9 +56,10 @@ python --version
 git clone https://github.com/portrai-io/CELLama.git 
 cd CELLama
 pip install -r requirements.txt
+
+### OPTIONAL
 pip install ipykernel jupyter jupyterlab 
 python -m ipykernel install --user --name CELLama --display-name CELLama
-
 cd
 jupyter lab
 ```
