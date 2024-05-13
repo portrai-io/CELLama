@@ -44,7 +44,7 @@ To get started with CELLama, download the project files and use pip install.
 pip install git+https://github.com/portrai-io/CELLama.git
 ```
 
-- If an error occurs as mentioned by KarlKaise, follow these steps:
+- If an error occurs as mentioned by [KarlKaise](https://github.com/portrai-io/CELLama/issues/1), follow these steps:
 
 ```bash
 ### Successful on Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-105-generic x86_64)
