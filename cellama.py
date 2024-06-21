@@ -9,6 +9,7 @@ from _nn_model import SimpleNN, train_model
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 from xgboost import XGBClassifier
+import faiss
 
 # Generate Sentence from scRNA-seq data
 def get_top_genes(adata, n_top=30):
@@ -67,6 +68,62 @@ def cell_to_sentence(adata, n_top=30, obs_features=None):
         formatted_dict[cell_id] = gene_sentence
     return formatted_dict
 
+def setup_faiss_search(df):
+    index = faiss.IndexFlatL2(df.shape[1]) 
+    index.add(df)
+    
+    return index
+    
+def find_nearest_cell_types_faiss(index, df_new, cell_types):
+    distances, indices = index.search(df_new, k=4)
+    nearest_cell_types = [cell_types[i[0]] for i in indices]
+    nearest_cell_distances = [distance[0] for distance in distances]
+    
+    return nearest_cell_types, nearest_cell_distances
+    
+def lm_cell_reference_celltyping(adata_ref_, adata_new_, model_name="all-MiniLM-L12-v2", sentence_label="cell_sentence",
+                                 top_k=30, gene_list=None, obs_features=None,
+                                 ref_cell='celltype', new_name='CellType_LM'):
+
+    embedding_function = SentenceTransformerEmbeddings(model_name=model_name)
+    
+    # Check if sentence_label exists in adata_ref_
+    if sentence_label in adata_ref_.obs.columns:
+        adata_ref = adata_ref_.copy()
+        sentences_ref = adata_ref.obs[sentence_label].tolist()
+    else:
+        if gene_list is not None:
+            adata_ref = adata_ref_[:, gene_list].copy()
+        else:
+            adata_ref = adata_ref_.copy()
+        top_genes_sentences_ref = cell_to_sentence(adata_ref, top_k, obs_features)
+        sentences_ref = list(top_genes_sentences_ref.values())
+   
+    # Check if sentence_label exists in adata_new_
+    if sentence_label in adata_new_.obs.columns:
+        adata_new = adata_new_.copy()
+        sentences_new = adata_new_.obs[sentence_label].tolist()
+    else:
+        if gene_list is not None:
+            adata_new = adata_new_[:, gene_list].copy()
+        else:
+            adata_new = adata_new_.copy()
+        top_genes_sentences_new = cell_to_sentence(adata_new, top_k, obs_features)
+        sentences_new = list(top_genes_sentences_new.values())
+  
+    print("all sentences are prepared")
+    db = embedding_function.embed_documents(sentences_ref)
+    db_new = embedding_function.embed_documents(sentences_new)
+  
+    df = pd.DataFrame(db)
+    df_new = pd.DataFrame(db_new)
+    index = setup_faiss_search(df)
+    nearest_cell_types, nearest_cell_distances = find_nearest_cell_types_faiss(index, df_new, adata_ref.obs[ref_cell])
+    
+    adata_new.obs[new_name] = nearest_cell_types
+    adata_new.obs[new_name + '_distance'] = nearest_cell_distances
+    
+    return adata_new
 def setup_knn_search(db, n_neighbors=1):
     knn = NearestNeighbors(n_neighbors=n_neighbors, algorithm='auto', metric='cosine')
     knn.fit(db)
@@ -106,7 +163,7 @@ def lm_cell_embed(adata_, top_k=30, model_name="all-MiniLM-L6-v2",gene_list=None
     return adata_emb
     
 
-def lm_cell_reference_celltyping(adata_ref_, adata_new_, model_name="all-MiniLM-L6-v2",
+def lm_cell_reference_celltyping_knn(adata_ref_, adata_new_, model_name="all-MiniLM-L6-v2",
                                  top_k=30, use_intersect= True, gene_list=None, obs_features = None,
                                  ref_cell = 'Cell_type', new_name='CellType_LM'):
     
