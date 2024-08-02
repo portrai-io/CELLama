@@ -68,7 +68,7 @@ jupyter lab
 ---
 
 ## License
-This project is licensed for non-commercial use only. For more information, see the `LICENSE` file included with the project.
+For more information, see the `LICENSE` file included with the project.
 
 ---
 
