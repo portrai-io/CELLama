@@ -17,7 +17,7 @@ We have used embeddings to ensure cells occupy the same space, traditionally don
 
 - Integration attempts to map cells by proximity, thus, the core challenge is how effectively cells can be embedded in the same space. This has led to the sudden rise of developing a 'universal' cell-specific gene expression embedding as a 'Foundation model'.
 
-- Models such as scGPT, Geneformer, etc. fall under this category. However, the crux is focusing on how gene expression values of each cell are integrated across batches and modalities, which vary significantly, making universal application difficult: more flexibility is needed!
+- Models such as scGPT and Geneformer fall into this category. However, a key challenge lies in effectively integrating gene expression values across diverse batches and modalities, which can vary significantly in composition. To enable universal application, greater flexibility is required—particularly in scenarios where multiple organs or conditions are present within the same dataset, or where co-embedding with other datasets is necessary for comparative and integrative analyses.
 
 - The hypothesis here is to use gene ranks as well as cell observations to integrate and various features under gene expression data of cells by creating a 'language description' of each cell related to its characteristics. By utilizing the 'sentence-transformer' without additional training (or additional training after generation sentences), we can create a cell-to-sentence function that describes cells and embed them using the sentence transformer. This can be varied from observational descriptions as well as 'gene ranks'.
 
