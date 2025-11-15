@@ -74,6 +74,6 @@ For more information, see the `LICENSE` file included with the project.
 
 ## Contact
 - Citation: 
-Choi, H., Park, J., Kim, S., Kim, J., Lee, D., Bae, S., Shin, H., & Lee, D. (2024). CELLama: Foundation model for single cell and spatial transcriptomics by cell embedding leveraging language model abilities. bioRxiv. https://doi.org/10.1101/2024.05.08.593094
+Park, J., Kim, S., Kim, J., Lee, D., Bae, S., Shin, H., Lee, D., Choi, H. (2025). CELLama: Foundation model for single cell and spatial transcriptomics by cell embedding leveraging language model abilities. Adv Sci. 
 - webpage: www.portrai.io
 - Portrai: contact@portrai.io ; Hongyoon Choi: chy@portrai.io
