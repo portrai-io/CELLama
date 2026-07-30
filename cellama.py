@@ -1,5 +1,6 @@
 from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
 import numpy as np
+import scipy.sparse
 from scipy.sparse import csr_matrix
 import pandas as pd
 import scanpy as sc
@@ -14,7 +15,9 @@ import faiss
 # Generate Sentence from scRNA-seq data
 def get_top_genes(adata, n_top=30):
     X = adata.X
-    if isinstance(X, np.ndarray):
+    if scipy.sparse.issparse(X):
+        X = X.tocsr(copy=False)
+    elif isinstance(X, np.ndarray):
         X = csr_matrix(X)
     
     # Placeholder dictionary to store the result
